@@ -1,0 +1,168 @@
+@use './global';
+
+label {
+  color: white;
+}
+
+input {
+  border: #950000 1px solid;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  border-radius: 5px;
+}
+
+button {
+  height: 4rem;
+  width: 10rem;
+  border-radius: 1rem;
+  background-color: gray;
+  color: gold;
+
+  &:hover {
+    background-color: #950000;
+  }
+}
+
+
+.wallpaper {
+  background-image: url('/dnd-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+
+.container {
+  padding: 5rem;
+
+  &__lower {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+  }
+}
+
+.basic-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-items: center;
+  
+  &__nameplate {
+  background-color: #10161ADB;
+  border: #950000 3px solid;
+  width: 400px;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+  gap: 1rem;
+  }
+
+  &__response {
+    color: greenyellow;
+    font-size: x-large;
+  }
+}
+
+.core-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  &__block {
+    display: grid;
+    justify-items: center;
+  }
+
+  &__background {
+    grid-area: 1/1;
+    height: 150px;
+    width: auto;
+  }
+
+  &__values {
+    grid-area: 1/1;
+    text-align: center;
+    z-index: 1;
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    height: 65%;
+    margin-top: .5rem;
+
+    input {
+    width: 5rem;
+    height: 50px;
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem;
+    }
+  }
+
+  &__substat {
+    margin-top: .25rem;
+  }
+}
+
+
+.savingThrows {
+  display: grid;
+
+  &__saves {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: 1/1;
+    z-index: 1;
+    padding: 2rem;
+    width: 20rem;
+    align-items: center;
+
+    input {
+      width: 30%;
+      margin-left: 1rem;
+    }
+  }
+
+  &__background {
+    height: 250px;
+    width: auto;
+    grid-area: 1/1;
+  }
+
+}
+
+.skills {
+  display: grid;
+  align-items: center;
+
+  &__values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-area: 1/1;
+    z-index: 1;
+    height: 15rem;
+
+    input {
+      width: 30%;
+      margin-left: 1rem;
+    }
+  }
+
+  &__stats {
+    width: 12rem;
+    height: 2.5rem;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+
+
+  &__background {
+    height: 275px;
+    width: auto;
+    grid-area: 1/1;
+  }
+}

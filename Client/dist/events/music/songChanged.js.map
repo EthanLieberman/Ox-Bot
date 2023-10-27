@@ -1,0 +1,1 @@
+{"version":3,"file":"songChanged.js","sourceRoot":"","sources":["../../../ts/events/music/songChanged.ts"],"names":[],"mappings":";AAAA,iBAAS;IACL,IAAI,EAAE,aAAa;IACnB,OAAO,CAAC,KAAK,EAAE,OAAO,EAAE,OAAO;QAC3B,OAAO,CAAC,GAAG,CAAC,GAAG,OAAO,kBAAkB,CAAC,CAAA;IAC7C,CAAC;CACJ,CAAC"}
