@@ -15,14 +15,9 @@
     "@types/node": "^20.8.3",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
-    "discord-music-player": "^9.1.1",
     "discord.js": "^14.1.2",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
     "ffmpeg": "^0.0.4",
-    "isomorphic-unfetch": "^4.0.2",
-    "localtunnel": "^2.0.2",
-    "ngrok": "^5.0.0-beta.2",
-    "ytdl-core": "^4.11.5"
+    "ngrok": "^5.0.0-beta.2"
   }
 }
