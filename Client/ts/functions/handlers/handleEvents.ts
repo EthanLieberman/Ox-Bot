@@ -19,15 +19,15 @@ export = (client, player, baseUrl) => {
                         }
                     }
 
-                case 'music':
-                    for (const file of eventFiles) {
-                        const event = require(`../../events/${folder}/${file}`);
-                        player.on(event.name, (...args) => {
-                            event.execute(...args, client)
-                        })
-                    }
+                // case 'music':
+                //     for (const file of eventFiles) {
+                //         const event = require(`../../events/${folder}/${file}`);
+                //         player.on(event.name, (...args) => {
+                //             event.execute(...args, client)
+                //         })
+                //     }
 
-                    break;
+                //     break;
 
                 default:
                     break;

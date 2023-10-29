@@ -1,12 +1,8 @@
-const chalk = require('chalk');
-
+const { Events } = require("discord.js")
 export = {
-    name: 'ready',
+    name: Events.ClientReady,
     once: true,
-    execute(client) {
-        console.log(chalk.green(`Ready! Logged in as ${client.user.tag}`));
-        // client.user.setUsername("GD Bot");
-        // client.user.setAvatar("https://i.imgur.com/IiFhDDP.jpeg");
-        // client.user.setActivity("Being worked on by my creator");
-    },
-};
+   async execute(client) {
+        console.log(`Ready! Logged in as ${client.user.tag}.`)
+      }
+} 

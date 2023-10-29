@@ -17,14 +17,20 @@ const { Client, Collection, GatewayIntentBits } = require('discord.js');
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 //music player setup
-const { Player } = require("discord-music-player");
-const player = new Player(client, {
-    leaveOnEmpty: false,
-    quality: 'high',
-    volume: '100',
-    deafenOnJoin: true
+const { Player } = require('discord-player');
+// Add the player on the client
+client.player = new Player(client, {
+    deafenOnJoin: true,
+    lagMonitor: 1000,
+    ytdlOptions: {
+        filter: "audioonly",
+        quality: "highestaudio",
+        highWaterMark: 1 << 25
+    }
 });
-client.player = player;
+client.player.events.on('playerStart', (queue, track) => queue.metadata.channel.send(`🎶 | Now playing **${track.title}**!`));
+client.player.events.on('error', (queue, error) => console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`));
+client.player.events.on('debug', (_queue, message) => console.log(`DEBUG:' ${message}\n`));
 client.commands = new Collection();
 client.commandArray = [];
 client.buttons = new Collection();
