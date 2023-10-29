@@ -1,5 +1,5 @@
 const { InteractionType } = require('discord.js');
-const chalk = require('chalk');
+// const chalk = require('chalk');
 
 function time() {
 	let date = new Date;
@@ -80,12 +80,12 @@ export = {
 			} catch (error) { console.log(error) }
 		}
 
-		console.log(
-			chalk.bold(`Command: `), chalk.green(`${interaction} \n`),
-			chalk.bold(`User: `), chalk.green(`${interaction.user.tag} \n`),
-			chalk.bold(`Server: `), chalk.green(`${interaction.guild.name} \n`),
-			chalk.bold(`Channel: `), chalk.green(`#${interaction.channel.name} \n`),
-			chalk.cyan(`At: ${time()} \n`)
-		);
+		// console.log(
+		// 	chalk.bold(`Command: `), chalk.green(`${interaction} \n`),
+		// 	chalk.bold(`User: `), chalk.green(`${interaction.user.tag} \n`),
+		// 	chalk.bold(`Server: `), chalk.green(`${interaction.guild.name} \n`),
+		// 	chalk.bold(`Channel: `), chalk.green(`#${interaction.channel.name} \n`),
+		// 	chalk.cyan(`At: ${time()} \n`)
+		// );
 	},
 };

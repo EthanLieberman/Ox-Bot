@@ -8,14 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const { Events } = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
-    name: Events.ClientReady,
-    once: true,
-    execute(client) {
+    data: new SlashCommandBuilder()
+        .setName("stop")
+        .setDescription("stop current queue"),
+    execute(interaction) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(`Ready! Logged in as ${client.user.tag}.`);
+            try {
+                const queue = interaction.client.player.nodes.get(interaction.guild);
+                if (!queue || !queue.isPlaying()) {
+                    return interaction.reply({ content: 'nothing playing', ephemeral: true });
+                }
+                interaction.client.player.nodes.delete((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id);
+                yield interaction.reply("Queue stopped");
+            }
+            catch (error) {
+                console.log(error);
+            }
         });
     }
 };
-//# sourceMappingURL=ready.js.map
+//# sourceMappingURL=stop.js.map

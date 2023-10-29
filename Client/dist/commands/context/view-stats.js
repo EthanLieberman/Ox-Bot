@@ -39,7 +39,7 @@ module.exports = {
             if (!dbClear) {
                 interaction.reply({
                     content: "Character not found, Database down or they don't have any characters",
-                    ephemral: true
+                    ephemeral: true
                 });
                 return;
             }

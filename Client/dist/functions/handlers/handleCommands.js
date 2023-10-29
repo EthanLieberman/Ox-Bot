@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const { REST, Routes } = require('discord.js');
-const chalk = require('chalk');
 const fs = require('node:fs');
 module.exports = (client) => {
     client.handleCommands = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -29,11 +28,11 @@ module.exports = (client) => {
         ;
         const rest = new REST({ version: '10' }).setToken(process.env.token);
         try {
-            console.log(chalk.yellow("Started refreshing application (/) commands"));
+            console.log("Started refreshing application (/) commands");
             yield rest.put(Routes.applicationCommands(process.env.clientId), {
                 body: commandArray,
             });
-            console.log(chalk.yellow("Sucessfully reloaded application (/) commands"));
+            console.log("Sucessfully reloaded application (/) commands");
         }
         catch (error) {
             console.log(error);
