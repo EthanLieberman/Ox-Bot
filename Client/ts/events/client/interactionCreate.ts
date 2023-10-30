@@ -47,14 +47,14 @@ export = {
 			} catch (error) { console.error(error) }
 		}
 
-		else if (interaction.isSelectMenu()) {
+		else if (interaction.isStringSelectMenu()) {
 			const { selectMenus } = client;
 			const { customId } = interaction;
 			const menu = selectMenus.get(customId);
 			if (!menu) return new Error("There is no code for this select menu");
 
 			try {
-				await menu.execute(interaction, client);
+				await menu.execute(interaction, client, baseUrl);
 			} catch (error) { console.error(error) }
 		}
 

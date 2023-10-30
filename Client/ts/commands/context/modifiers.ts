@@ -1,39 +1,65 @@
-const { EmbedBuilder, ContextMenuCommandBuilder, ApplicationCommandType } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ContextMenuCommandBuilder, ApplicationCommandType, ApplicationCommand } = require('discord.js');
 const axios = require('axios').default;
 
 export = {
     data: new ContextMenuCommandBuilder()
-        .setName('view-stats')
+        .setName('modifiers')
         .setType(ApplicationCommandType.User),
 
     async execute(interaction, client, baseUrl) {
-        // gets the player data from db
-        let { playerId } = interaction.targetUser   // gets the id of the target player
-        console.log('playerId', playerId)
-        let campaignId: string = ''; // the targetted plays active campaign
+        let playerId: string = interaction.targetUser.id;   // the targetted players Id
+        let campaignId: string = ''; // the players campaign Id
         let data: {
-            name: string,
-            level: string,
-            class: string,
-            pfpUrl: string,
             strength: string,
             dexterity: string,
-            constitution:string,
+            constitution: string,
             intelligence: string,
             wisdom: string,
-            charisma: string
+            charisma: string,
+            acrobatics: string,
+            animalHandling: string,
+            arcana:  string,
+            athletics: string,
+            deception: string,
+            history: string,
+            insight: string,
+            intimidation: string,
+            investigation: string,
+            medicine: string,
+            nature: string,
+            perception: string,
+            performance: string,
+            persuasion: string,
+            religion: string,
+            sleightOfHand: string,
+            stealth: string,
+            survival: string,
         } = {
-            name: '',
-            level: '',
-            class: '',
-            pfpUrl: '',
             strength: '',
             dexterity: '',
-            constitution:'',
+            constitution: '',
             intelligence: '',
             wisdom: '',
-            charisma: ''
-        } // the character data
+            charisma: '',
+            acrobatics: '',
+            animalHandling: '',
+            arcana: '',
+            athletics: '',
+            deception: '',
+            history: '',
+            insight: '',
+            intimidation: '',
+            investigation: '',
+            medicine: '',
+            nature: '',
+            perception: '',
+            performance: '',
+            persuasion: '',
+            religion: '',
+            sleightOfHand: '',
+            stealth: '',
+            survival: '',
+        };  // the stat data
 
         let dbClear: boolean = true // if target player has no characters end
 
@@ -51,7 +77,6 @@ export = {
 
         await axios.get(`${baseUrl}/${playerId}/${campaignId}`) // gets character data from DB
         .then(res => data = res.data);
-
 
         let embed = new EmbedBuilder()
             .setColor([117, 1, 1])
@@ -71,6 +96,5 @@ export = {
             .setFooter({ text: 'Ox-Bot by YerGodDamnRight' });
 
         interaction.reply({ embeds: [embed] });
-
-    },
-};
+    }
+}

@@ -12,7 +12,7 @@ const { EmbedBuilder, ContextMenuCommandBuilder, ApplicationCommandType } = requ
 const axios = require('axios').default;
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('view-stats')
+        .setName('stats')
         .setType(ApplicationCommandType.User),
     execute(interaction, client, baseUrl) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -57,4 +57,4 @@ module.exports = {
         });
     },
 };
-//# sourceMappingURL=view-stats.js.map
+//# sourceMappingURL=stats.js.map

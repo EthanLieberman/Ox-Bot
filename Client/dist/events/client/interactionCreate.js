@@ -58,14 +58,14 @@ module.exports = {
                     console.error(error);
                 }
             }
-            else if (interaction.isSelectMenu()) {
+            else if (interaction.isStringSelectMenu()) {
                 const { selectMenus } = client;
                 const { customId } = interaction;
                 const menu = selectMenus.get(customId);
                 if (!menu)
                     return new Error("There is no code for this select menu");
                 try {
-                    yield menu.execute(interaction, client);
+                    yield menu.execute(interaction, client, baseUrl);
                 }
                 catch (error) {
                     console.error(error);
