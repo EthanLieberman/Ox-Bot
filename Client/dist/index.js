@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const fs = require('node:fs');
 const ngrok = require('ngrok');
+const colorette_1 = require("colorette");
 // Require the necessary discord.js classes
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 // Create a new client instance
@@ -30,7 +31,7 @@ client.player = new Player(client, {
 });
 client.player.events.on('playerStart', (queue, track) => queue.metadata.channel.send(`🎶 | Now playing **${track.title}**!`));
 client.player.events.on('error', (queue, error) => console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`));
-client.player.events.on('debug', (_queue, message) => console.log(`DEBUG:' ${message}\n`));
+client.player.events.on('debug', (_queue, message) => console.log(`${(0, colorette_1.blue)('DEBUG:')}' ${(0, colorette_1.gray)(message)}\n`));
 client.commands = new Collection();
 client.commandArray = [];
 client.buttons = new Collection();
@@ -46,7 +47,7 @@ const rokStart = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     const res = yield ngrok.getApi().listTunnels();
     baseUrl = res.tunnels[0].public_url;
-    console.log(`Ngrok URL: ${baseUrl}`);
+    console.log(`Ngrok URL: ${(0, colorette_1.cyan)(baseUrl)}`);
 });
 // async funtion calling rokStart to start and awaits its completeion
 (() => __awaiter(void 0, void 0, void 0, function* () {

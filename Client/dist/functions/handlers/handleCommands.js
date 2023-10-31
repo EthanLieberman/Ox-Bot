@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const colorette_1 = require("colorette");
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 module.exports = (client) => {
@@ -28,11 +29,11 @@ module.exports = (client) => {
         ;
         const rest = new REST({ version: '10' }).setToken(process.env.token);
         try {
-            console.log("Started refreshing application (/) commands");
+            console.log((0, colorette_1.yellow)("Started refreshing application (/) commands"));
             yield rest.put(Routes.applicationCommands(process.env.clientId), {
                 body: commandArray,
             });
-            console.log("Sucessfully reloaded application (/) commands");
+            console.log((0, colorette_1.yellow)("Sucessfully reloaded application (/) commands"));
         }
         catch (error) {
             console.log(error);

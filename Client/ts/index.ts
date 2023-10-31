@@ -1,6 +1,7 @@
 import 'dotenv/config';
 const fs = require('node:fs');
 const ngrok = require('ngrok');
+import { blue, gray, cyan } from 'colorette';
 
 // Require the necessary discord.js classes
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
@@ -23,7 +24,7 @@ client.player = new Player(client, {
 
 client.player.events.on('playerStart', (queue, track) => queue.metadata.channel.send(`🎶 | Now playing **${track.title}**!`));
 client.player.events.on('error', (queue, error) => console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`));
-client.player.events.on('debug', (_queue, message) => console.log(`DEBUG:' ${message}\n`));
+client.player.events.on('debug', (_queue, message) => console.log(`${blue('DEBUG:')}' ${gray(message)}\n`));
 
 
 client.commands = new Collection();
@@ -44,7 +45,7 @@ const rokStart = async () => {
 
     const res = await ngrok.getApi().listTunnels();
     baseUrl = res.tunnels[0].public_url;
-    console.log(`Ngrok URL: ${baseUrl}`);
+    console.log(`Ngrok URL: ${cyan(baseUrl)}`);
 };
 
 // async funtion calling rokStart to start and awaits its completeion

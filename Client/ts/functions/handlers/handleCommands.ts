@@ -1,3 +1,5 @@
+import { yellow } from "colorette";
+
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 
@@ -21,11 +23,11 @@ export = (client) => {
 
         const rest = new REST({ version: '10' }).setToken(process.env.token);
         try {
-            console.log("Started refreshing application (/) commands");
+            console.log(yellow("Started refreshing application (/) commands"));
             await rest.put(Routes.applicationCommands(process.env.clientId), {
                 body: commandArray,
             });
-            console.log("Sucessfully reloaded application (/) commands");
+            console.log(yellow("Sucessfully reloaded application (/) commands"));
         } catch (error) {
             console.log(error);
         }

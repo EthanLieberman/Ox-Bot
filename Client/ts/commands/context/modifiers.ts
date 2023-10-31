@@ -1,5 +1,5 @@
-const { SlashCommandBuilder, EmbedBuilder, ContextMenuCommandBuilder, ApplicationCommandType, ApplicationCommand } = require('discord.js');
-const axios = require('axios').default;
+const { EmbedBuilder, ContextMenuCommandBuilder, ApplicationCommandType } = require('discord.js');
+const axios = require('axios');
 
 export = {
     data: new ContextMenuCommandBuilder()
@@ -10,12 +10,6 @@ export = {
         let playerId: string = interaction.targetUser.id;   // the targetted players Id
         let campaignId: string = ''; // the players campaign Id
         let data: {
-            strength: string,
-            dexterity: string,
-            constitution: string,
-            intelligence: string,
-            wisdom: string,
-            charisma: string,
             acrobatics: string,
             animalHandling: string,
             arcana:  string,
@@ -34,13 +28,11 @@ export = {
             sleightOfHand: string,
             stealth: string,
             survival: string,
+            name: string,
+            class: string,
+            level: string,
+            pfpUrl: string
         } = {
-            strength: '',
-            dexterity: '',
-            constitution: '',
-            intelligence: '',
-            wisdom: '',
-            charisma: '',
             acrobatics: '',
             animalHandling: '',
             arcana: '',
@@ -59,6 +51,10 @@ export = {
             sleightOfHand: '',
             stealth: '',
             survival: '',
+            name: '',
+            class: '',
+            level: '',
+            pfpUrl: ''
         };  // the stat data
 
         let dbClear: boolean = true // if target player has no characters end
@@ -84,14 +80,28 @@ export = {
             .setDescription(`Level: ${data.level} ${data.class} ` || 'Undecided Adventurer')
             .setThumbnail(data.pfpUrl || 'https://styles.redditmedia.com/t5_rjbmv/styles/communityIcon_8eoix3xy09d51.png?width=256&s=d2629df112e2b5adc27afb24f5035083f4333fc1')
             .addFields(
-                { name: 'Strength', value: String(data.strength || 'N/A'), inline: true },
-                { name: 'Dexterity', value: String(data.dexterity || 'N/A'), inline: true },
-                { name: 'Constitution', value: String(data.constitution || 'N/a'), inline: true },
+                { name: 'Acrobatics', value: String(data.acrobatics || 'N/A'), inline: true },
+                { name: 'Animal Handling', value: String(data.animalHandling || 'N/A'), inline: true },
+                { name: 'Arcana', value: String(data.arcana || 'N/a'), inline: true },
+                { name: 'Athletics', value: String(data.athletics || 'N/a'), inline: true },
+                { name: 'Deception', value: String(data.deception || 'N/a'), inline: true },
+                { name: 'History', value: String(data.history || 'N/a'), inline: true }
             )
             .addFields(
-                { name: 'Inteligence', value: String(data.intelligence || 'N/A'), inline: true },
-                { name: 'Wisdom', value: String(data.wisdom || 'N/A'), inline: true },
-                { name: 'Charisma', value: String(data.charisma || 'N/A'), inline: true }
+                { name: 'Insight', value: String(data.insight || 'N/A'), inline: true },
+                { name: 'Intimidation', value: String(data.intimidation || 'N/A'), inline: true },
+                { name: 'Investigation', value: String(data.investigation || 'N/A'), inline: true },
+                { name: 'Medicine', value: String(data.medicine || 'N/A'), inline: true },
+                { name: 'Nature', value: String(data.nature || 'N/A'), inline: true },
+                { name: 'Perception', value: String(data.perception || 'N/A'), inline: true }
+            )
+            .addFields(
+                { name: 'Performance', value: String(data.performance || 'N/A'), inline: true },
+                { name: 'Persuasion', value: String(data.persuasion || 'N/A'), inline: true },
+                { name: 'Religion', value: String(data.religion || 'N/A'), inline: true },
+                { name: 'Sleight Of Hand', value: String(data.sleightOfHand || 'N/A'), inline: true },
+                { name: 'Stealth', value: String(data.stealth || 'N/A'), inline: true },
+                { name: 'Survival', value: String(data.survival || 'N/A'), inline: true }
             )
             .setFooter({ text: 'Ox-Bot by YerGodDamnRight' });
 

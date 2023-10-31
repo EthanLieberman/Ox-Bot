@@ -9,12 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const { Events } = require("discord.js");
+const colorette_1 = require("colorette");
 module.exports = {
     name: Events.ClientReady,
     once: true,
     execute(client) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(`Ready! Logged in as ${client.user.tag}.`);
+            console.log(`${(0, colorette_1.green)('Ready! Logged in as ')} ${(0, colorette_1.green)(client.user.tag)}\n`);
         });
     }
 };
