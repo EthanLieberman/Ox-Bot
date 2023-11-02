@@ -1,23 +1,22 @@
 const { SlashCommandBuilder } = require("discord.js");
-
-const {QueryType} = require("discord-player")
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
-        .setName("shuffle")
-        .setDescription("shuffle the queue"),
+        .setName("skip")
+        .setDescription("skip current song"),
     async execute(interaction) {
         try{
         const queue = interaction.client.player.nodes.get(interaction.guild)
 
         if (!queue || !queue.isPlaying()) {
-            return interaction.reply({ content: "There is nothing in queue!", ephemeral: true })
+            return interaction.reply({ content: "There is nothing playing" })
         }
 
-        await queue.tracks.shuffle();
-        interaction.reply(`Queue shuffled`)
-
+        const currentTrack = queue.current
+        const success = queue.node.skip()
+        return interaction.reply({ content: `Skipped ${queue.currentTrack}` })
     }catch (error) {
         console.log(error)
     }
     }
+
 }

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
         .setName("clear")
         .setDescription("clear the queue"),

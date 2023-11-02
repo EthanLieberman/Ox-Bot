@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 const { QueueRepeatMode } = require("discord-player")
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
         .setName("loop")
         .setDescription("loop queue/track/autoplay")

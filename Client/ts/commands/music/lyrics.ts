@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const { lyricsExtractor } = require("@discord-player/extractor")
 const search = lyricsExtractor()
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
         .setName("lyrics")
         .setDescription("song to search lyrics")

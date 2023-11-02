@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
         .setName("previous")
         .setDescription("play previous song"),
