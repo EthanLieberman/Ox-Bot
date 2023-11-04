@@ -1,7 +1,9 @@
 node_modules
 
-dockerfile
+vite.config.js
 
 .env
 
-todo.md
+README.md
+
+.dockerignore

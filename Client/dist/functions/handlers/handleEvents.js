@@ -9,16 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const fs = require('node:fs');
+const path = require('path');
 module.exports = (client, player, baseUrl) => {
     client.handleEvents = () => __awaiter(void 0, void 0, void 0, function* () {
-        const eventFolders = fs.readdirSync(`./events`);
+        const eventFolders = fs.readdirSync(path.join(__dirname, `../../events`));
         for (const folder of eventFolders) {
-            const eventFiles = fs.readdirSync(`./events/${folder}`)
+            const eventFiles = fs.readdirSync(path.join(__dirname, `../../events/${folder}`))
                 .filter(file => file.endsWith('.js'));
             switch (folder) {
                 case 'client':
                     for (const file of eventFiles) {
-                        const event = require(`../../events/${folder}/${file}`);
+                        const event = require(path.join(__dirname, `../../events/${folder}/${file}`));
                         if (event.once) {
                             client.once(event.name, (...args) => event.execute(...args, client));
                         }

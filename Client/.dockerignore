@@ -1,0 +1,11 @@
+node_modules
+
+ts
+
+.env
+
+.dockerignore
+
+tsconfig.json
+
+README.node_modules

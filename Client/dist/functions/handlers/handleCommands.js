@@ -11,15 +11,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const colorette_1 = require("colorette");
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
+const path = require('path');
 module.exports = (client) => {
     client.handleCommands = () => __awaiter(void 0, void 0, void 0, function* () {
         const { commands, commandArray } = client;
-        const commandFolders = fs.readdirSync(`./commands`);
+        const commandFolders = fs.readdirSync(path.join(__dirname, `../../commands`));
         for (const folder of commandFolders) {
-            const commandFiles = fs.readdirSync(`./commands/${folder}`)
+            const commandFiles = fs.readdirSync(path.join(__dirname, `../../commands/${folder}`))
                 .filter(file => file.endsWith('.js'));
             for (const file of commandFiles) {
-                const command = require(`../../commands/${folder}/${file}`);
+                const command = require(path.join(__dirname, `../../commands/${folder}/${file}`));
                 commands.set(command.data.name, command);
                 commandArray.push(command.data.toJSON());
                 // console.log(`Command: ${command.data.name} has passed through the handler`)

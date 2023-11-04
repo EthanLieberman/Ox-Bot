@@ -13,6 +13,7 @@ require("dotenv/config");
 const fs = require('node:fs');
 const ngrok = require('ngrok');
 const colorette_1 = require("colorette");
+const path = require('path');
 // Require the necessary discord.js classes
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 // Create a new client instance
@@ -52,13 +53,13 @@ const rokStart = () => __awaiter(void 0, void 0, void 0, function* () {
 // async funtion calling rokStart to start and awaits its completeion
 (() => __awaiter(void 0, void 0, void 0, function* () {
     yield rokStart();
-    const functionFolders = fs.readdirSync(`./functions`);
+    const functionFolders = fs.readdirSync(path.join(__dirname, `./functions`));
     for (const folder of functionFolders) {
         const functionFiles = fs
-            .readdirSync(`./functions/${folder}`)
+            .readdirSync(path.join(__dirname, `./functions/${folder}`))
             .filter(file => file.endsWith('.js'));
         for (const file of functionFiles)
-            require(`./functions/${folder}/${file}`)(client, client.player, baseUrl, process.env.token);
+            require(path.join(__dirname, `./functions/${folder}/${file}`))(client, client.player, baseUrl, process.env.token);
     }
     client.handleEvents();
     client.handleCommands();
