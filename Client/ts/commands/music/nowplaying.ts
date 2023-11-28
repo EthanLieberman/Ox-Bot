@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
-        .setName("np")
+        .setName("nowplaying")
         .setDescription("see what is playing right now"),
     async execute(interaction) {
         try {

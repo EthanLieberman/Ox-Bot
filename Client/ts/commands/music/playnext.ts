@@ -1,7 +1,7 @@
 
 const { SlashCommandBuilder } = require("discord.js");
 const {QueryType} = require("discord-player")
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
         .setName("playnext")
         .setDescription("song to play next right after the one is playing right now")
@@ -29,7 +29,7 @@ module.exports = {
 
         queue.node.insert(searchResults.tracks[0])
 
-        await interaction.reply("Successfully changed yhe order")
+        await interaction.reply("Successfully changed the order")
 
     }catch (error) {
         console.log(error)

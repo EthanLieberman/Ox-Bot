@@ -22,21 +22,20 @@ export = {
     ***/rick*** (Gets info on Rick & Morty characters or locations)
     
 **Music:**
-    *All music commands are typed starting with '!'*
     *you must be in a Voice channel to use any music commands*
-    *currently admin use only...blame them*
 
-    ***!play*** <song name or url here> (plays a song with whatever you type after the command)
-    ***!pause*** (pauses current song)
-    ***!resume*** (resumes curent song)
-    ***!stop*** (stops music and bot leaves voice channel)
-    ***!getQueue*** (gets a list of all songs added to the player)
-    ***!skip*** (plays the next song in the queue if any)
-    ***!setVolume*** <0-100> (sets the bot music volume at requested level)
-    ***!toggleLoop*** (sets the current song on loop or stops loop if active)
-    ***!toggleQueueLoop*** (same as loop for song except entire queue loops)
-    ***!shuffle*** (randomizes song order)
-    ***!nowPlaying*** (lists the currently playing song)`,
+    ***/play*** <song name or url here> (plays a song with whatever you type in the command input)
+    ***/pause*** (pauses current song)
+    ***/resume*** (resumes curent song)
+    ***/stop*** (stops music and bot leaves voice channel)
+    ***/skip*** (plays the next song in the queue if any)
+    ***/volume*** <0-100> (sets the bot music volume at requested level)
+    ***/loop*** (sets the music to loop song, playlist, auto, or no loop)
+    ***/shuffle*** (randomizes song order)
+    ***/nowPlaying*** (lists the currently playing song)
+    ***/playnext*** (play requested song after current song)
+    ***/jump*** (skip to song # in the playlist)
+    ***/back*** (play last song)`,
             ephemeral: true
         })
 

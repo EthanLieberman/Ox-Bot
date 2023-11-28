@@ -1,5 +1,5 @@
 const { InteractionType } = require('discord.js');
-// const chalk = require('chalk');
+import { bold, green, cyan } from "colorette";
 
 function time() {
 	let date = new Date;
@@ -47,14 +47,14 @@ export = {
 			} catch (error) { console.error(error) }
 		}
 
-		else if (interaction.isSelectMenu()) {
+		else if (interaction.isStringSelectMenu()) {
 			const { selectMenus } = client;
 			const { customId } = interaction;
 			const menu = selectMenus.get(customId);
 			if (!menu) return new Error("There is no code for this select menu");
 
 			try {
-				await menu.execute(interaction, client);
+				await menu.execute(interaction, client, baseUrl);
 			} catch (error) { console.error(error) }
 		}
 
@@ -80,12 +80,12 @@ export = {
 			} catch (error) { console.log(error) }
 		}
 
-		// console.log(
-		// 	chalk.bold(`Command: `), chalk.green(`${interaction} \n`),
-		// 	chalk.bold(`User: `), chalk.green(`${interaction.user.tag} \n`),
-		// 	chalk.bold(`Server: `), chalk.green(`${interaction.guild.name} \n`),
-		// 	chalk.bold(`Channel: `), chalk.green(`#${interaction.channel.name} \n`),
-		// 	chalk.cyan(`At: ${time()} \n`)
-		// );
+		console.log(
+			bold(`Command: `), green(`${interaction} \n`),
+			bold(`User: `), green(`${interaction.user.tag} \n`),
+			bold(`Server: `), green(`${interaction.guild.name} \n`),
+			bold(`Channel: `), green(`#${interaction.channel.name} \n`),
+			cyan(`At: ${time()} \n`)
+		);
 	},
 };

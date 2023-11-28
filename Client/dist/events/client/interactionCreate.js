@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const { InteractionType } = require('discord.js');
-// const chalk = require('chalk');
+const colorette_1 = require("colorette");
 function time() {
     let date = new Date;
     let now = date.toLocaleString('en-US', {
@@ -58,14 +58,14 @@ module.exports = {
                     console.error(error);
                 }
             }
-            else if (interaction.isSelectMenu()) {
+            else if (interaction.isStringSelectMenu()) {
                 const { selectMenus } = client;
                 const { customId } = interaction;
                 const menu = selectMenus.get(customId);
                 if (!menu)
                     return new Error("There is no code for this select menu");
                 try {
-                    yield menu.execute(interaction, client);
+                    yield menu.execute(interaction, client, baseUrl);
                 }
                 catch (error) {
                     console.error(error);
@@ -97,13 +97,7 @@ module.exports = {
                     console.log(error);
                 }
             }
-            // console.log(
-            // 	chalk.bold(`Command: `), chalk.green(`${interaction} \n`),
-            // 	chalk.bold(`User: `), chalk.green(`${interaction.user.tag} \n`),
-            // 	chalk.bold(`Server: `), chalk.green(`${interaction.guild.name} \n`),
-            // 	chalk.bold(`Channel: `), chalk.green(`#${interaction.channel.name} \n`),
-            // 	chalk.cyan(`At: ${time()} \n`)
-            // );
+            console.log((0, colorette_1.bold)(`Command: `), (0, colorette_1.green)(`${interaction} \n`), (0, colorette_1.bold)(`User: `), (0, colorette_1.green)(`${interaction.user.tag} \n`), (0, colorette_1.bold)(`Server: `), (0, colorette_1.green)(`${interaction.guild.name} \n`), (0, colorette_1.bold)(`Channel: `), (0, colorette_1.green)(`#${interaction.channel.name} \n`), (0, colorette_1.cyan)(`At: ${time()} \n`));
         });
     },
 };

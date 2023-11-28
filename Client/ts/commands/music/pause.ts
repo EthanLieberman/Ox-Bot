@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-module.exports = {
+export = {
     data: new SlashCommandBuilder()
         .setName("pause")
         .setDescription("pause the current track"),

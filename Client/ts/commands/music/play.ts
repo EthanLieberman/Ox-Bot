@@ -5,7 +5,7 @@ const {QueryType} = require("discord-player")
 export = {
     data: new SlashCommandBuilder()
     .setName("play")
-    .setDescription("new play command")
+    .setDescription("play a song")
     .addStringOption(option => option
         .setName("string")
         .setDescription("query")

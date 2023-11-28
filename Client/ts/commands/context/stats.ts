@@ -3,12 +3,12 @@ const axios = require('axios').default;
 
 export = {
     data: new ContextMenuCommandBuilder()
-        .setName('view-stats')
+        .setName('stats')
         .setType(ApplicationCommandType.User),
 
     async execute(interaction, client, baseUrl) {
         // gets the player data from db
-        let { playerId } = interaction.targetUser   // gets the id of the target player
+        const playerId = interaction.targetUser.id   // gets the id of the target player
         console.log('playerId', playerId)
         let campaignId: string = ''; // the targetted plays active campaign
         let data: {
