@@ -4,12 +4,14 @@ Welcome to the Ox bot Repo, A Discord.js bot created to Play DND in your server
 
 Created With Typescript, Vue3, Scss, Javascript, Google Firebase, and Docker
 
+<p align=left>
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="50">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" height="50">
 <img src="https://sass-lang.com/assets/img/styleguide/seal-color.png" height="50">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" height="50">
 <img src="https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png" height="50">
 <img src="https://www.svgrepo.com/show/349342/docker.svg" height="50">
+</p>
 
 ## Features
 
